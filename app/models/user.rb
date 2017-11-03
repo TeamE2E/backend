@@ -1,8 +1,9 @@
 class User < ActiveRecord::Base
-  include HasLocation
-
   # Include default devise modules.
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :trackable, :validatable
   include DeviseTokenAuth::Concerns::User
+
+  has_one :location, as: :locatable
+  acts_as_mappable through: :location
 end
