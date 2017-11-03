@@ -4,6 +4,6 @@ class User < ActiveRecord::Base
     :recoverable, :rememberable, :trackable, :validatable
   include DeviseTokenAuth::Concerns::User
 
-  has_one :location, as: :locatable
+  has_one :location
   acts_as_mappable through: :location
 end
