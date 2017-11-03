@@ -55,6 +55,10 @@ GEM
       rails (< 6)
     erubi (1.7.0)
     ffi (1.9.18)
+    geokit (1.11.0)
+    geokit-rails (2.3.0)
+      geokit (~> 1.5)
+      rails (>= 3.0)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     hashie (3.5.6)
@@ -153,6 +157,7 @@ PLATFORMS
 DEPENDENCIES
   byebug
   devise_token_auth
+  geokit-rails
   listen (>= 3.0.5, < 3.2)
   money-rails (~> 1)
   mysql2

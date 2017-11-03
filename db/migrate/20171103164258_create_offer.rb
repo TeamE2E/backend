@@ -5,6 +5,7 @@ class CreateOffer < ActiveRecord::Migration[5.1]
       t.monetize :price
       t.integer :available_kwh
       t.integer :min_kwh
+      t.timestamps
     end
   end
 end
