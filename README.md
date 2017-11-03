@@ -1,24 +1,47 @@
-# README
+**Sign In**
+----
+  Sign in.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* **URL**
 
-Things you may want to cover:
+  /auth/sign_in
 
-* Ruby version
+* **Method:**
 
-* System dependencies
+  `POST`
 
-* Configuration
+*  **URL Params**
 
-* Database creation
+   None
 
-* Database initialization
+* **Data Params**
 
-* How to run the test suite
+  **Required:**
 
-* Services (job queues, cache servers, search engines, etc.)
+   `email=[string]`
 
-* Deployment instructions
+   `password=[string]`
 
-* ...
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** `{
+      "data": {
+        "id": 1,
+        "email": "test@test.com",
+        "provider": "email",
+        "uid": "test@test.com",
+        "name": null,
+        "nickname": null,
+        "image": null
+      }
+    }`
+
+* **Error Response:**
+
+  * **Code:** 401 UNAUTHORIZED <br />
+    **Content:** `{
+      "errors": [
+        "Invalid login credentials. Please try again."
+      ]
+    }`
