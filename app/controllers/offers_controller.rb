@@ -29,4 +29,10 @@ class OffersController < ApplicationController
 
     render json: @offers, include: [user: {include: :location}], methods: [:fee, :total_amount, :distance, :duration, :demo_route]
   end
+
+  def show
+    offer = Offer.find params[:id]
+
+    render json: offer
+  end
 end
