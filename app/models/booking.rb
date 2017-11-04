@@ -3,4 +3,6 @@ class Booking < ActiveRecord::Base
   belongs_to :seller, class_name: 'User', foreign_key: :seller_id
 
   validates_presence_of :buyer, :seller, :lat, :lng, :price_cents, :fee_cents, :total_amount_cents, :kwh
+
+  PERCENTAGE_FEE = 10
 end

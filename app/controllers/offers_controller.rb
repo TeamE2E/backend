@@ -6,7 +6,7 @@ class OffersController < ApplicationController
     user_ids = locations.map(&:user_id)
     @offers = Offer.where(user_id: user_ids)
     @offers.each do |offer|
-      offer.fee = offer.price_cents * 10 / 100
+      offer.fee = offer.price_cents * Booking::PERCENTAGE_FEE / 100
       offer.total_amount = offer.price_cents + offer.fee
       offer.distance = offer.user.location.distance_from(current_user.location)
     end
