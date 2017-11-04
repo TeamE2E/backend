@@ -32,6 +32,8 @@ class OffersController < ApplicationController
 
   def show
     offer = Offer.find params[:id]
+    offer.fee = offer.price_cents * Booking::PERCENTAGE_FEE / 100
+    offer.total_amount = offer.price_cents + offer.fee
 
     render json: offer
   end
