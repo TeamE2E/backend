@@ -10,7 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171103213209) do
+ActiveRecord::Schema.define(version: 20171104081212) do
+
+  create_table "bookings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "buyer_id"
+    t.integer "seller_id"
+    t.float "lat", limit: 24
+    t.float "lng", limit: 24
+    t.integer "price_cents", default: 0, null: false
+    t.string "price_currency", default: "EUR", null: false
+    t.integer "fee_cents", default: 0, null: false
+    t.string "fee_currency", default: "EUR", null: false
+    t.integer "total_amount_cents", default: 0, null: false
+    t.string "total_amount_currency", default: "EUR", null: false
+    t.integer "kwh"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "locations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "user_id"
