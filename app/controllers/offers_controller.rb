@@ -35,6 +35,6 @@ class OffersController < ApplicationController
     offer.fee = offer.price_cents * Booking::PERCENTAGE_FEE / 100
     offer.total_amount = offer.price_cents + offer.fee
 
-    render json: offer
+    render json: offer, methods: [:fee, :total_amount]
   end
 end
