@@ -18,7 +18,7 @@ class BookingsController < ApplicationController
     booking.total_amount = offer.price + booking.fee
     booking.lat = current_user.location.lat
     booking.lng = current_user.location.lng
-    booking.kwh = offer.kwh
+    booking.kwh = offer.available_kwh
 
     begin
       booking.save!
