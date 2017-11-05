@@ -3,6 +3,8 @@ class BookingsController < ApplicationController
 
   def create
     offer = Offer.find params[:offer_id]
+    email = params[:email]
+
     if current_user == offer.user
       return render json: {msg: 'invalid actor'}, status: 403
     end
@@ -19,7 +21,8 @@ class BookingsController < ApplicationController
 
     begin
       booking.save!
-      msg = {msg: 'Succes'}
+      BookingMailer.created(booking, email).deliver_now
+      msg = {msg: 'Succes', id: booking.id}
       code = 201
     rescue Exception => e
       msg = {msg: booking.errors.to_sentece}
