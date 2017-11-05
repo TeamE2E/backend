@@ -21,7 +21,7 @@ class BookingsController < ApplicationController
 
     begin
       booking.save!
-      # BookingMailer.created(booking, email).deliver_now
+      BookingMailer.created(booking, email).deliver_now
       msg = {msg: 'Succes', id: booking.id}
       code = 201
     rescue Exception => e
