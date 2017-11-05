@@ -47,11 +47,11 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address:              'smtp.sendgrid.net',
+    address:              'smtp.sparkpostmail.com',
     port:                 587,
-    user_name:            'apikey',
-    password:             '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',
-    authentication:       'plain',
+    user_name:            'SMTP_Injection',
+    password:             ENV.fetch('SMTP_PASSWORD'),
+    authentication:       'login',
     enable_starttls_auto: true
   }
 end
