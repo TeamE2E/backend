@@ -1,10 +1,9 @@
 class BookingsController < ApplicationController
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
 
   def create
     offer = Offer.find params[:offer_id]
     email = params[:email]
-    # current_user ||= User.find 1
 
     if current_user == offer.user
       return render json: {msg: 'invalid actor'}, status: 403

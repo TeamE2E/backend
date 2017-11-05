@@ -1,5 +1,5 @@
 class OffersController < ApplicationController
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
 
   def index
     locations = Location.within(Location::RADIUS, origin: current_user.location).where.not(user: current_user)
